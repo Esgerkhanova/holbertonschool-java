@@ -4,6 +4,5 @@ public class PrintFormattingNumbers {
         float value = 7654.321f;
         System.out.printf("Value: $%,.2f\n", value);
         System.out.printf("Tax: %.2f%%\n", tax);
-
     }
 }
