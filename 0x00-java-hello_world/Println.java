@@ -1,5 +1,6 @@
 public class Println {
     public static void main(String[] args) {
-        System.out.println("Holberton School");
+        String text="Holberton School";
+        System.out.println(text);
     }
 }
