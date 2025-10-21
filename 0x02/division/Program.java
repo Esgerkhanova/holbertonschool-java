@@ -4,12 +4,12 @@ public class Program {
 
         a = 4;
         b = 3;
-        TheNumber.todivide(a, b);
+        Number.todivide(a, b);
         System.out.println();
 
         a = 9;
         b = 0;
-        TheNumber.todivide(a, b);
+       Number.todivide(a, b);
     }
 }
 
