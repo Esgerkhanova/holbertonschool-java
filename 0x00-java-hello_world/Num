@@ -1,0 +1,4 @@
+public class Num{
+public static void main(String[] args){
+int m=0;
+Sytem.out.println(m);}}
