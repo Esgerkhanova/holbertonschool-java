@@ -1,6 +1,0 @@
-public class num{
-public static void main(String[] arg){
-int m=9;
-System.out.println(m);
-}
-}
