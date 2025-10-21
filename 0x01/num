@@ -1,4 +1,6 @@
 public class num{
-int m-9;
+public static void main(String[] arg){
+int m=9;
 System.out.println(m);
+}
 }
