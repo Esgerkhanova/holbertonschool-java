@@ -1,4 +1,4 @@
-public class Number {
+public class TheNumber {
     public static void todivide(int a, int b) {
         int result = 0;
         try {
