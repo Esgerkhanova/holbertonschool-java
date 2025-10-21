@@ -1,1 +1,4 @@
-
+public class num{
+int m-9;
+System.out.println(m);
+}
