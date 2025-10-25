@@ -39,8 +39,8 @@ public class Program {
             System.out.println(e.getMessage());
         }
 
-    
+     
         System.out.println();
-        System.out.flush();
+        System.out.flush(); 
     }
 }
