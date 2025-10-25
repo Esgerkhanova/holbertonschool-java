@@ -38,8 +38,9 @@ public class Program {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        // ✅ Bu boş sətri əlavə et
+        
+        System.out.println();
+        System.out.println();
         System.out.println();
     }
 }
