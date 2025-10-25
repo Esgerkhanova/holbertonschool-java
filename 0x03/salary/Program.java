@@ -1,5 +1,9 @@
+import java.util.Locale;
+
 public class Program {
     public static void main(String[] args) {
+        Locale.setDefault(Locale.FRANCE); // ← bu sətri əlavə et
+
         Department engineeringDepartment = new Department(1000, 1100);
         Department documentationDepartment = new Department(1000, 800);
 
