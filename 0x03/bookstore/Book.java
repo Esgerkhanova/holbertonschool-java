@@ -7,21 +7,23 @@ public class Book {
     private double price;
 
     public Book(String title, String author, double price) {
-           if (title == null || title.isEmpty()) {
+        if (title == null || title.isEmpty()) {
             throw new InvalidBookException("Invalid book title");
         }
         if (author == null || author.isEmpty()) {
             throw new InvalidAuthorException("Invalid author name");
         }
         if (price <= 0) {
-            throw new Exception("Invalid book price");
+            throw new InvalidBookException("Invalid book price");
         }
-        setTitle(title);
-        setAuthor(author);
-        setPrice(price);
+
+        // birbaşa mənimsət
+        this.title = title;
+        this.author = author;
+        this.price = price;
     }
-  
-     public void printDetails() {
+
+    public void printDetails() {
         System.out.printf("Title: %s - Author: %s - Price: %.2f%n", title, author, price);
     }
 }
