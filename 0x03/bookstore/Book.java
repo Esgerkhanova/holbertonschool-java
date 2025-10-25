@@ -8,10 +8,10 @@ public class Book {
 
     public Book(String title, String author, double price) {
            if (title == null || title.isEmpty()) {
-            throw new Exception("Invalid book title");
+            throw new InvalidBookException("Invalid book title");
         }
         if (author == null || author.isEmpty()) {
-            throw new Exception("Invalid author name");
+            throw new InvalidAuthorException("Invalid author name");
         }
         if (price <= 0) {
             throw new Exception("Invalid book price");
