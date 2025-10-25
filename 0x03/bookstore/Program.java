@@ -31,15 +31,14 @@ try {
 } catch (Exception e) {
     System.out.println(e.getMessage());
 }
-
+System.out.println();
 try {
     Book b5 = new Book("Some Book", "Unknown", -10);
     b5.printDetails();
 } catch (Exception e) {
     System.out.println(e.getMessage());
 }
-    System.out.println();
-        
-System.out.println();
+    System.out.println();   
+
     }
 }
