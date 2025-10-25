@@ -18,10 +18,12 @@ public class Book {
             throw new InvalidBookException("Invalid book price");
         }
 
-        // birbaşa mənimsət
         this.title = title;
         this.author = author;
         this.price = price;
+    }
+     public double getPrice() {
+        return price;
     }
 
     public void printDetails() {
