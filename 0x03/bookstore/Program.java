@@ -39,7 +39,7 @@ public class Program {
             System.out.println(e.getMessage());
         }
 
-        // ✅ Test sisteminin tələb etdiyi əlavə boş sətir
+        // ✅ Bu boş sətri əlavə et
         System.out.println();
     }
 }
