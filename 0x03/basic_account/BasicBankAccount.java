@@ -19,10 +19,6 @@ public class BasicBankAccount {
         return balance;
     }
 
-    public double getAnnualInterestRate() {
-        return annualInterestRate;
-    }
-
     public void deposit(double value) throws InvalidOperationException {
         if (value <= 0) {
             throw new InvalidOperationException("Deposit amount must be greater than 0");
