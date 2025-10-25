@@ -2,7 +2,7 @@ import java.util.Locale;
 
 public class Program {
     public static void main(String[] args) {
-        Locale.setDefault(Locale.FRANCE); // bu virgul (,) formatını aktiv edir
+        Locale.setDefault(Locale.FRANCE); 
 
         try {
             BasicBankAccount account1 = new BasicBankAccount("AAA", 50.0);
@@ -60,5 +60,6 @@ public class Program {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+         System.out.println();
     }
 }
