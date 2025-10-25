@@ -17,7 +17,7 @@ public class ControlledBankAccount extends BasicBankAccount {
             try {
                 withdraw(penaltyAmount);
             } catch (InvalidOperationException e) {
-                // ignore
+            
             }
         }
     }
