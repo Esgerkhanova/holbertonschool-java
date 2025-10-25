@@ -39,7 +39,8 @@ public class Program {
             System.out.println(e.getMessage());
         }
 
-        // ✅ Bu sətr çıxışın sonunda əlavə boş sətir yaradır
+    
         System.out.println();
+        System.out.flush();
     }
 }
