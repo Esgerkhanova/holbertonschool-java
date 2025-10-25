@@ -6,7 +6,8 @@ public class Book {
     private String author;
     private double price;
 
-    public Book(String title, String author, double price) {
+    public Book(String title, String author, double price)
+    throws InvalidBookException, InvalidAuthorException {
         if (title == null || title.isEmpty()) {
             throw new InvalidBookException("Invalid book title");
         }
