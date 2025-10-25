@@ -16,8 +16,8 @@ public class ControlledBankAccount extends BasicBankAccount {
         if (getBalance() < minimumBalance) {
             try {
                 withdraw(penaltyAmount);
-            } catch (InvalidOperationException e) {
-            
+            } catch (InvalidOperationException ignored) {
+                // Əgər balans çox azdırsa, cərimə tətbiq olunmur
             }
         }
     }
