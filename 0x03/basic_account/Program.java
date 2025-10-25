@@ -30,16 +30,17 @@ public class Program {
             System.out.println(ex.getMessage());
         }
 
-        try {
-            BasicBankAccount account3 = new BasicBankAccount("CCC", 60.0);
-            System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
-            account3.deposit(1600);
-            System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
-            account3.withdraw(150);
-            System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+       try {
+    BasicBankAccount account3 = new BasicBankAccount("CCC", 60.0);
+    System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
+    account3.deposit(1600);
+    System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
+    account3.deposit(150);
+    System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
+} catch (Exception ex) {
+    System.out.println(ex.getMessage());
+}
+
 
         try {
             BasicBankAccount account4 = new BasicBankAccount("DDD", 80.0);
