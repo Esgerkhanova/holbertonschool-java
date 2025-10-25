@@ -15,7 +15,7 @@ public class Program {
             System.out.printf("Account %s - balance: %.2f%n", account1.getAccountNumber(), account1.getBalance());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }
+        } System.out.println();
 
         try {
             BasicBankAccount account2 = new BasicBankAccount("BBB", 100.0);
@@ -29,7 +29,7 @@ public class Program {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-
+ System.out.println();
        try {
     BasicBankAccount account3 = new BasicBankAccount("CCC", 60.0);
     System.out.printf("Account %s - balance: %.2f%n", account3.getAccountNumber(), account3.getBalance());
@@ -40,7 +40,7 @@ public class Program {
 } catch (Exception ex) {
     System.out.println(ex.getMessage());
 }
-
+ System.out.println();
 
         try {
             BasicBankAccount account4 = new BasicBankAccount("DDD", 80.0);
@@ -50,7 +50,7 @@ public class Program {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-
+ System.out.println();
         try {
             BasicBankAccount account5 = new BasicBankAccount("EEE", 90.0);
             System.out.printf("Account %s - balance: %.2f%n", account5.getAccountNumber(), account5.getBalance());
