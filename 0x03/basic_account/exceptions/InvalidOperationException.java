@@ -5,3 +5,4 @@ public class InvalidOperationException extends Exception {
         super(message);
     }
 }
+
