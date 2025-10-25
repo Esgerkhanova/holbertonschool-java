@@ -41,6 +41,6 @@ public class Program {
 
      
         System.out.println();
-        System.out.flush(); 
+       System.out.println();
     }
 }
