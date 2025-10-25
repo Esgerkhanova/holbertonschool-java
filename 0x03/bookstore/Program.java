@@ -11,13 +11,13 @@ public class Program {
             Book b2 = new Book("Frankenstein", "Mary Shelley", 49.79);
             b2.printDetails();
 
-            Book b3 = new Book("", "Lewis Carroll", 28.44); 
+            Book b3 = new Book("", "Lewis Carroll", 28.44);
             b3.printDetails();
 
-            Book b4 = new Book("Dracula", "", 15.99);  
+            Book b4 = new Book("Dracula", "", 15.99);
             b4.printDetails();
 
-            Book b5 = new Book("Some Book", "Unknown", -10);  
+            Book b5 = new Book("Some Book", "Unknown", -10);
             b5.printDetails();
 
         } catch (Exception e) {
