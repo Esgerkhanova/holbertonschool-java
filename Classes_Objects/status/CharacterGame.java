@@ -1,18 +1,22 @@
 public class CharacterGame {
     private int currentHealth;
     private String name;
-    private String status; 
+    private String status;
 
- public CharacterGame(int initialHealth, String initialName) {
-        this.name = "Unknown Character";
+  
+    public CharacterGame(int initialHealth, String initialName) {
+        this.name = "Unknown Character"; 
         setName(initialName);
+     
         setCurrentHealth(initialHealth);
     }
+
+
 
     public int getCurrentHealth() {
         return currentHealth;
     }
-  
+
     public void setCurrentHealth(int currentHealth) {
         int clampedHealth = Math.min(100, Math.max(0, currentHealth));
         this.currentHealth = clampedHealth;
@@ -28,6 +32,7 @@ public class CharacterGame {
     }
 
     public void setName(String name) {
+        // Validation: Reject null or empty strings
         if (name != null && !name.trim().isEmpty()) {
             this.name = name;
         }
@@ -37,12 +42,12 @@ public class CharacterGame {
         return status;
     }
 
+    // --- Methods ---
 
     public void takeDamage(int damageAmount) {
         int newHealth = this.currentHealth - damageAmount;
         setCurrentHealth(newHealth);
     }
-    
 
     public void receiveHealing(int healingAmount) {
         int newHealth = this.currentHealth + healingAmount;
