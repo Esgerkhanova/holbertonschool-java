@@ -3,7 +3,11 @@ public class CharacterGame {
     private String name;
     private String status; 
 
-
+ public CharacterGame(int initialHealth, String initialName) {
+        this.name = "Unknown Character";
+        setName(initialName);
+        setCurrentHealth(initialHealth);
+    }
 
     public int getCurrentHealth() {
         return currentHealth;
@@ -24,7 +28,9 @@ public class CharacterGame {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        }
     }
 
     public String getStatus() {
@@ -36,6 +42,7 @@ public class CharacterGame {
         int newHealth = this.currentHealth - damageAmount;
         setCurrentHealth(newHealth);
     }
+    
 
     public void receiveHealing(int healingAmount) {
         int newHealth = this.currentHealth + healingAmount;
