@@ -20,6 +20,13 @@ public abstract class Product {
     public double getGrossPrice() {
         return grossPrice;
     }
+     public int getYear() {
+        return year;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 
     public abstract double getNetPrice();
 }
