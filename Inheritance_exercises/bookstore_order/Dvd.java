@@ -10,7 +10,17 @@ public class Dvd extends Product {
         this.genre = genre;
         this.duration = duration;
     }
+ public String getDirector() {
+        return director;
+    }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
     @Override
     public double getNetPrice() {
         return getGrossPrice() * 1.20;
