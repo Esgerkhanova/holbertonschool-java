@@ -12,7 +12,8 @@ public abstract class Product {
         this.country = country;
         this.grossPrice = grossPrice;
     }
-
+    public abstract double getNetPrice();
+    
     public String getTitle() {
         return title;
     }
@@ -28,5 +29,5 @@ public abstract class Product {
         return country;
     }
 
-    public abstract double getNetPrice();
+
 }
