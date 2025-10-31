@@ -11,7 +11,11 @@ public class Book extends Product {
         this.author = author;
         this.edition = edition;
     }
-
+   
+    public int getPages() {
+        return pages;
+    }
+    
     @Override
     public double getNetPrice() {
         return getGrossPrice() * 1.15;
