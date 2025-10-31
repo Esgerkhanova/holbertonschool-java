@@ -3,7 +3,7 @@ public class Rectangle extends GeometricShape{
   private double height;
 
 
-  public double getWidth( double width){
+  public double getWidth(){
     return width;
   }
 
