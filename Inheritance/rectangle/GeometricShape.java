@@ -1,3 +1,4 @@
-public abstract class GeometricShape {
-    public abstract double area();
+public class GeometricShape {
+    public double area(){
+    }
 }
