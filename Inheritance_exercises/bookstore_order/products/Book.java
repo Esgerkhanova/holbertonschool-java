@@ -1,5 +1,5 @@
 
-public class Book extends Products {
+public class Book extends Product {
     private int pages;
     private String author;
     private int edition;
