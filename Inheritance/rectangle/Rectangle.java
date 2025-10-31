@@ -24,12 +24,5 @@ public class Rectangle extends GeometricShape{
         }
         this.height = height;
     }
-      @Override
-    public double area() {
-        return width * height;
-    }
-  @Override
-    public String toString() {
-        return String.format("[Rectangle] %.2f / %.2f", width, height);
-    }
+ 
 }
