@@ -1,4 +1,8 @@
-  public class Program {
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+
+
+public class Program {
         public static void main(String[] args) {
             try {
                 if (Modifier.isAbstract(GeometricShape.class.getDeclaredMethod("area").getModifiers()))
