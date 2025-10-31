@@ -6,19 +6,27 @@ public class Order {
         this.discountPercentage = discountPercentage;
         this.items = items;
     }
+   public double calculateTotal() {
+        double subtotal = 0.0;
 
-    public double calculateTotal() {
-        double total = 0;
-
+     
         for (ItemOrder item : items) {
-            double price = item.getProduct().getNetPrice();
-            total += price * item.getQuantity();
+           
+            subtotal += item.getProduct().getNetPrice() * item.getQuantity();
         }
 
-        if (discountPercentage > 0) {
-            total -= total * (discountPercentage / 100);
-        }
+   
+        double discountMultiplier = 1.0 - (discountPercentage / 100.0);
 
-        return total;
+        return subtotal * discountMultiplier;
+    }
+
+  
+    public double getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public ItemOrder[] getItems() {
+        return items;
     }
 }
