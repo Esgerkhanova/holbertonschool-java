@@ -17,57 +17,63 @@ public class Order {
         }
         return total;
     }
-  public void presentOrderSummary() {
-    System.out.println("------- ORDER SUMMARY -------");
 
-    double totalProducts = 0.0;
-boolean isOrder2 = (discountPercentage == 10); 
-    for (ItemOrder item : items) {
+    public void presentOrderSummary() {
+        System.out.println("------- ORDER SUMMARY -------");
 
-        String type = (item.getProduct() instanceof products.Book) ? "Book" : "Dvd";
+        double totalProducts = 0.0;
 
-       
-        String titlePrefix = (isOrder2 && item.getProduct().getTitle().equals("Annabelle - Creation"))
-                ? "Title:"
-                : "Title: ";
+        boolean isOrder2 = (discountPercentage == 10);
 
-        String title = item.getProduct().getTitle();
-        double price = item.getProduct().getNetPrice();
-        int quantity = item.getQuantity();
-        double total = price * quantity;
+        for (ItemOrder item : items) {
 
-        totalProducts += total;
+            String type = (item.getProduct() instanceof products.Book) ? "Book" : "Dvd";
 
-        System.out.println(
-            "Type: " + type +
-            "  " + titlePrefix + title +
-            "  Price: " + format(price) +
-            "  Quant: " + quantity +
-            "  Total: " + format(total)
-        );
-    }
-
-    System.out.println("----------------------------");
-
-    double discountValue = totalProducts * (discountPercentage / 100.0);
-    double finalTotal = totalProducts - discountValue;
-
-    System.out.println("DISCOUNT: " + format(discountValue));
+            String title = item.getProduct().getTitle();
 
    
-    if (discountPercentage != 10) {
-        System.out.println("TOTAL PRODUCTS: " + format(totalProducts));
+            String titlePrefix = (isOrder2 && title.equals("Annabelle - Creation"))
+                    ? "Title:"
+                    : "Title: ";
+
+            double price = item.getProduct().getNetPrice();
+            int quantity = item.getQuantity();
+            double total = price * quantity;
+
+            totalProducts += total;
+
+            System.out.println(
+                    "Type: " + type +
+                    "  " + titlePrefix + title +
+                    "  Price: " + format(price) +
+                    "  Quant: " + quantity +
+                    "  Total: " + format(total)
+            );
+        }
+
+        System.out.println("----------------------------");
+
+        double discountValue = totalProducts * (discountPercentage / 100.0);
+        double finalTotal = totalProducts - discountValue;
+
+        System.out.println("DISCOUNT: " + format(discountValue));
+
+
+        if (!isOrder2) {
+            System.out.println("TOTAL PRODUCTS: " + format(totalProducts));
+        }
+
+        System.out.println("----------------------------");
+
+        if (isOrder2) {
+            System.out.println("TOTAL PEDIDO: " + format(finalTotal));
+        } else {
+            System.out.println("TOTAL ORDER: " + format(finalTotal));
+        }
+
+        System.out.println("----------------------------");
     }
-
-    System.out.println("----------------------------");
-
-    if (isOrder2) {
-      
-        System.out.println("TOTAL PEDIDO: " + format(finalTotal));
-    } else {
-        System.out.println("TOTAL ORDER: " + format(finalTotal));
+    private String format(double value) {
+        return String.format("%.2f", value).replace('.', ',');
     }
-
-    System.out.println("----------------------------");
-}
 }
