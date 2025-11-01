@@ -29,4 +29,8 @@ public class Order {
     public ItemOrder[] getItems() {
         return items;
     }
+    private String format(double value) {
+    return String.format("%.2f", value).replace('.', ',');
+}
+
 }
