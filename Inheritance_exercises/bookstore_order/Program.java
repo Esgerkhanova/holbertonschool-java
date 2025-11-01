@@ -21,8 +21,7 @@
             };
 
             Order order1 = new Order(0, itemOrder1);
-
-            System.out.printf("Total Order: %.2f\n", order1.calculateTotal());
+System.out.println("Total Order: " + order1.format(order1.calculateTotal()));
 
             // Order 2
             ItemOrder[] itemOrder2 = new ItemOrder[] {
@@ -32,7 +31,7 @@
 
             Order order2 = new Order(10, itemOrder2);
 
-            System.out.printf("Total Order: %.2f\n", order2.calculateTotal());
+            System.out.println("Total Order: " + order2.format(order2.calculateTotal()));
 
             // Order 3
             ItemOrder[] itemOrder3 = new ItemOrder[] {
@@ -43,7 +42,7 @@
 
             Order order3 = new Order(5, itemOrder3);
 
-            System.out.printf("Total Order: %.2f\n", order3.calculateTotal());
+           System.out.println("Total Order: " + order3.format(order3.calculateTotal()));
 
             // Order 4
             ItemOrder[] itemOrder4 = new ItemOrder[] {
@@ -56,6 +55,6 @@
 
             Order order4 = new Order(5, itemOrder4);
 
-            System.out.printf("Total Order: %.2f\n", order4.calculateTotal());
+   System.out.println("Total Order: " + order4.format(order4.calculateTotal()));
         }
     }
