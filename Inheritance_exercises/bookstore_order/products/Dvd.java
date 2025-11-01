@@ -1,4 +1,7 @@
-public class Dvd extends Product{
+package products;
+
+
+public class Dvd extends Products{
     private String director;
     private String genre;
     private int duration;
