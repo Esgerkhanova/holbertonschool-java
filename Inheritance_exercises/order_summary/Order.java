@@ -66,6 +66,8 @@ public class Order {
         System.out.println("----------------------------");
 
         if (isOrder2) {
+            System.out.println("TOTAL ORDER: " + format(totalProducts));
+            System.out.println("----------------------------");
             System.out.println("TOTAL PEDIDO: " + format(finalTotal));
         } else {
             System.out.println("TOTAL ORDER: " + format(finalTotal));
