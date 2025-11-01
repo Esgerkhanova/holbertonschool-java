@@ -22,7 +22,6 @@ public class Order {
         System.out.println("------- ORDER SUMMARY -------");
 
         double totalProducts = 0.0;
-
         boolean isOrder2 = (discountPercentage == 10);
 
         for (ItemOrder item : items) {
@@ -31,7 +30,6 @@ public class Order {
 
             String title = item.getProduct().getTitle();
 
-   
             String titlePrefix = (isOrder2 && title.equals("Annabelle - Creation"))
                     ? "Title:"
                     : "Title: ";
@@ -58,26 +56,21 @@ public class Order {
 
         System.out.println("DISCOUNT: " + format(discountValue));
 
-
-        if (!isOrder2) {
-            System.out.println("TOTAL PRODUCTS: " + format(totalProducts));
-        }
-        } else {
-    
-    System.out.println("TOTAL ORDER: " + format(totalProducts)); 
-}
-
-        System.out.println("----------------------------");
-
         if (isOrder2) {
-  
+
+            System.out.println("TOTAL ORDER: " + format(totalProducts));
+            System.out.println("----------------------------");
             System.out.println("TOTAL PEDIDO: " + format(finalTotal));
         } else {
+            System.out.println("TOTAL PRODUCTS: " + format(totalProducts));
+            System.out.println("----------------------------");
             System.out.println("TOTAL ORDER: " + format(finalTotal));
         }
 
         System.out.println("----------------------------");
     }
+
+  
     private String format(double value) {
         return String.format("%.2f", value).replace('.', ',');
     }
