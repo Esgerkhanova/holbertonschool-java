@@ -2,31 +2,47 @@ import exceptions.InvalidAuthorException;
 import exceptions.InvalidBookException;
 
 public class Book {
+
     private String title;
     private String author;
     private double price;
 
-    public Book(String title, String author, double price)
-    throws InvalidBookException, InvalidAuthorException {
-        if (title == null || title.isEmpty()) {
+    public Book(String title, String author, double price) throws Exception {
+        setTitle(title);
+        setAuthor(author);
+        setPrice(price);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) throws InvalidBookException {
+        if (title == null || title.length() < 3) {
             throw new InvalidBookException("Invalid book title");
         }
-        if (author == null || author.isEmpty()) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) throws InvalidAuthorException {
+        if (author == null || author.trim().split("\\s+").length < 2) {
             throw new InvalidAuthorException("Invalid author name");
         }
-        if (price <= 0) {
-            throw new InvalidBookException("Invalid book price");
-        }
-
-        this.title = title;
         this.author = author;
-        this.price = price;
     }
-     public double getPrice() {
+
+    public double getPrice() {
         return price;
     }
 
-    public void printDetails() {
-        System.out.printf("Title: %s - Author: %s - Price: %.2f%n", title, author, price);
+    public void setPrice(double price) throws InvalidBookException {
+        if (price <= 0) {
+            throw new InvalidBookException("Invalid book price");
+        }
+        this.price = price;
     }
 }
