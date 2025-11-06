@@ -24,6 +24,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return happinessPoints + " - " + getCurrentMood().getClass().getSimpleName();
+return happinessPoints + " - " + getCurrentMood().toString();
+
     }
 }
