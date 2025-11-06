@@ -45,4 +45,11 @@ public class Book {
             throw new InvalidBookException("Invalid book price");
         }
     }
+    public void printDetails() {
+    System.out.printf("Title: %s - Author: %s - Price: %.2f\n",
+            getTitle(),
+            getAuthor(),
+            getPrice());
+}
+
 }
