@@ -12,35 +12,32 @@ public class Program {
         }
 
         try {
-            Book b2 = new Book("Frankenstein", "Mary Shelley", 49.79);
+            GoldEditionBook b2 = new GoldEditionBook("Frankenstein", "Mary Shelley", 38.30);
             b2.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            Book b4 = new Book("Dracula", "", 15.99);
+            GoldEditionBook b4 = new GoldEditionBook("Alice’s Adventures in Wonderland",
+                    "Lewis Carroll", 21.88);
             b4.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            Book b3 = new Book("", "Lewis Carroll", 28.44);
+            Book b3 = new Book("", "Bram Stoker", 15.99);
             b3.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            Book b5 = new Book("Some Book", "Unknown", -10);
+            Book b5 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 0);
             b5.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-        System.out.println();
-        System.out.println();
-        System.out.println();
     }
 }
