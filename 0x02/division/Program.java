@@ -9,7 +9,6 @@ public class Program {
 
         a = 9;
         b = 0;
-       Number.todivide(a, b);
+        Number.todivide(a, b);
     }
 }
-
