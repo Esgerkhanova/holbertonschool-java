@@ -1,5 +1,6 @@
 import exceptions.InvalidAuthorException;
 import exceptions.InvalidBookException;
+import java.util.Locale;
 
 public class Book {
 
@@ -43,6 +44,3 @@ public class Book {
         if (price <= 0) {
             throw new InvalidBookException("Invalid book price");
         }
-        this.price = price;
-    }
-}
