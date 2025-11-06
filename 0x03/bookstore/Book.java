@@ -44,3 +44,5 @@ public class Book {
         if (price <= 0) {
             throw new InvalidBookException("Invalid book price");
         }
+    }
+}
