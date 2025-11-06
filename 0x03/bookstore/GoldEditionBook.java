@@ -1,11 +1,11 @@
 public class GoldEditionBook extends Book {
-    public GoldEditionBook(String title, String author, double price)
-            throws exceptions.InvalidAuthorException, exceptions.InvalidBookException {
+
+    public GoldEditionBook(String title, String author, double price) throws Exception {
         super(title, author, price);
     }
 
     @Override
     public double getPrice() {
-        return super.getPrice() * 1.3;
+        return super.getPrice() * 1.30;  
     }
 }
