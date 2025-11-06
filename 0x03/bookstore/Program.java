@@ -19,22 +19,21 @@ public class Program {
         }
 
         try {
-            GoldEditionBook b4 = new GoldEditionBook("Alice’s Adventures in Wonderland",
-                    "Lewis Carroll", 21.88);
-            b4.printDetails();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        try {
-            Book b3 = new Book("", "Bram Stoker", 15.99);
+            Book b3 = new Book("Short", "Bad", 15.99);
             b3.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            Book b5 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 0);
+            Book b4 = new Book("A", "Lewis Carroll", 21.88);
+            b4.printDetails();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            Book b5 = new Book("Any Book", "F. Scott Fitzgerald", 0);
             b5.printDetails();
         } catch (Exception e) {
             System.out.println(e.getMessage());
