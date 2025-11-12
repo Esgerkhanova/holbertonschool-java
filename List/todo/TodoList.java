@@ -22,33 +22,21 @@ public class TodoList {
 
     // Method to add a Task
     public void addTask(Task task) {
-        if (task == null) {
-            // Optional: Prevent adding null tasks
-            throw new IllegalArgumentException("Cannot add a null task.");
-        }
+        // Check for existing identifier
         if (findTaskById(task.getIdentifier()) != null) {
             throw new IllegalArgumentException(
                 "Task with identifier " + task.getIdentifier() + " already exists in the list"
             );
         }
 
-        // Validate description before adding (as per Task's requirements)
-        // This is primarily handled in the Task constructor/modifyDescription, 
-        // but adding an extra check here for consistency with the expected failure.
+        // To satisfy the specific test case: 
+        // try { todo.addTask(new Task("", 4)); } catch (Exception ex) { ... }
+        // The Task class constructor allows "" but the list logic may need to prevent it.
+        // We will enforce the validation here to ensure the error message matches the output.
         if (task.getDescription() == null || task.getDescription().trim().isEmpty()) {
-             // To match the output, we simulate the exception being thrown *before* addition,
-             // which would happen if the Task constructor/validation was more strict.
-             // Given the Program.java test, the Task constructor allows an empty string. 
-             // The failure for an empty string happens on modifyDescription.
-             // However, the test case tries to *add* a Task with an empty description and 
-             // expects "Invalid task description". We'll throw an exception here 
-             // to satisfy the test case's expected output.
-             if (task.getDescription() == null || task.getDescription().trim().isEmpty()) {
-                 throw new InvalidTaskDescriptionException("Invalid task description");
-             }
+             throw new IllegalArgumentException("Invalid task description");
         }
-
-
+        
         tasks.add(task);
     }
 
@@ -56,20 +44,20 @@ public class TodoList {
     public boolean markTaskDone(int identifier) {
         Task task = findTaskById(identifier);
         if (task == null) {
-            return false; // Task not found
+            return false;
         }
         task.setDone(true);
-        return true; // Task marked (or already was) as done
+        return true;
     }
 
     // Method to mark a task as not done
     public boolean undoTask(int identifier) {
         Task task = findTaskById(identifier);
         if (task == null) {
-            return false; // Task not found
+            return false;
         }
         task.setDone(false);
-        return true; // Task marked (or already was) as not done
+        return true;
     }
 
     // Method to mark all tasks as not done
