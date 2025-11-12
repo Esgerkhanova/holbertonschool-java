@@ -1,17 +1,17 @@
+// File: Task.java
 public class Task {
     private String description;
     private boolean isDone;
-    private int identifier;
+    private final int identifier; // identifier should be final as it's set in the constructor
 
+    // Constructor
     public Task(String description, int identifier) {
-        if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid task description");
-        }
         this.description = description;
         this.identifier = identifier;
-        this.isDone = false;
+        this.isDone = false; // Default state is not done
     }
 
+    // Getter Accessor Methods
     public String getDescription() {
         return description;
     }
@@ -24,18 +24,25 @@ public class Task {
         return identifier;
     }
 
+    // Setter for isDone (used by TodoList)
+    public void setDone(boolean done) {
+        this.isDone = done;
+    }
+
+    // Method to modify the task's description
     public void modifyDescription(String newDescription) {
         if (newDescription == null || newDescription.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid task description");
+            // Using the custom exception for clarity, though an IllegalArgumentException is also fine
+            throw new InvalidTaskDescriptionException("Invalid task description");
         }
         this.description = newDescription;
     }
 
-    public void markDone() {
-        this.isDone = true;
-    }
-
-    public void undo() {
-        this.isDone = false;
+    // Overriding toString for easy display (as required by listTasks)
+    @Override
+    public String toString() {
+        String status = isDone ? "[X]" : "[ ]";
+        // Note: The example output has a space before Id:
+        return String.format("%s  Id: %d - Description: %s", status, identifier, description);
     }
 }
