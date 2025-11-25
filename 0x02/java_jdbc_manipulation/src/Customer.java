@@ -56,4 +56,8 @@ public class Customer{
     public void setRg(String rg) {
         this.rg = rg;
     }
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Name: " + name + ", Age: " + age + ", CPF: " + cpf + ", RG: " + rg;
+    }
 }
