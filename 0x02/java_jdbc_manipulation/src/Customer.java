@@ -7,7 +7,7 @@ public class Customer{
   private String cpf;
   private String rg;
 
-public Customer() {}
+
 
     public Customer(Integer id, String name, Integer age, String cpf, String rg) {
         this.id = id;
