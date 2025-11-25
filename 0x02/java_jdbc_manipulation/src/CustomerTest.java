@@ -8,10 +8,12 @@ public class CustomerTest {
         // 1) Instantiating the implementation class
         CustomerDAOImpl customerDAOImpl = new CustomerDAOImpl();
         
-        // Connect is primarily used to ensure the database file is present and the connection works.
+        // Connect is used to ensure the database file is present and the connection works.
+        System.out.println("--- 1) Attempting Connection and Database Creation ---");
         customerDAOImpl.connect(url);
 
         // 2) Creating the table 
+        System.out.println("\n--- 2) Creating Customer Table ---");
         customerDAOImpl.createTable(url);
 
         // 3) Inserting customers
@@ -27,21 +29,28 @@ public class CustomerTest {
         customer2.setCpf("888.111.111-11");
         customer2.setRg("777.222.222-22");
 
-        System.out.println("\n--- Inserting Initial Data ---");
+        System.out.println("\n--- 3) Inserting Initial Data ---");
         customerDAOImpl.insert(url, c1);
         customerDAOImpl.insert(url, customer2);
         
-        System.out.println("\n--- 4) Initial Selection ---");
+        // 4) Selecting all customers
+        System.out.println("\n--- 4) Initial Selection (Expected IDs 1 and 2) ---");
         customerDAOImpl.selectAll(url);
 
-        // 5) Updating a customer (Assuming Danilo R. Pereira has ID = 1)
+        // 5) Updating a customer (ID 1 is Danilo R. Pereira)
         System.out.println("\n--- 5) Updating Customer with ID 1 ---");
         customerDAOImpl.update(url, 1, "Danilo Rodrigues Pereira", 38);
+        
+        // Verify update
+        System.out.println("\n--- Selection After Update (ID 1 changed) ---");
         customerDAOImpl.selectAll(url);
 
-        // 6) Deleting a customer (Assuming Joao Oliveira Silva has ID = 2)
+        // 6) Deleting a customer (ID 2 is Joao Oliveira Silva)
         System.out.println("\n--- 6) Deleting Customer with ID 2 ---");
         customerDAOImpl.delete(url, 2);
+        
+        // Verify deletion
+        System.out.println("\n--- Final Selection (Only ID 1 remains) ---");
         customerDAOImpl.selectAll(url);
     }
 }
