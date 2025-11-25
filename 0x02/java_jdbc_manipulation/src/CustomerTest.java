@@ -2,13 +2,13 @@ public class CustomerTest {
 
     public static void main(String[] args) {
 
-        // The URL for the SQLite database. The file will be created if it doesn't exist.
+        // The URL for the SQLite database. This path dictates the name of the database file.
         String url = "jdbc:sqlite:sqlite_database_marco_2022.db";
 
         // 1) Instantiating the implementation class
         CustomerDAOImpl customerDAOImpl = new CustomerDAOImpl();
         
-        // Connect is used to ensure the database file is present and the connection works.
+        // Connect is the operation that physically creates the file if it doesn't exist.
         System.out.println("--- 1) Attempting Connection and Database Creation ---");
         customerDAOImpl.connect(url);
 
