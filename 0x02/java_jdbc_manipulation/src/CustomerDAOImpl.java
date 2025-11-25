@@ -1,5 +1,3 @@
-package src;
-
 import java.sql.*;
 
 public class CustomerDAOImpl implements CustomerDAO {
@@ -7,7 +5,9 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public Connection connect(String connectionUrl) {
         try {
-            return DriverManager.getConnection(connectionUrl);
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            System.out.println("Connected to DB.");
+            return conn;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -16,17 +16,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void createTable(String connectionUrl) {
-        String sql = "CREATE TABLE IF NOT EXISTS customers (" +
-                     "id INTEGER PRIMARY KEY, " +
-                     "name TEXT, " +
-                     "age INTEGER, " +
-                     "cpf TEXT, " +
-                     "rg TEXT)";
+        String sql = "CREATE TABLE IF NOT EXISTS customers ("
+                + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "name TEXT, "
+                + "age INTEGER, "
+                + "cpf TEXT, "
+                + "rg TEXT"
+                + ")";
 
         try (Connection conn = connect(connectionUrl);
              Statement stmt = conn.createStatement()) {
+
             stmt.execute(sql);
-            System.out.println("Table created successfully.");
+            System.out.println("Table created.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,19 +36,18 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void insert(String connectionUrl, Customer customer) {
-        String sql = "INSERT INTO customers (id, name, age, cpf, rg) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO customers (name, age, cpf, rg) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = connect(connectionUrl);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, customer.getId());
-            pstmt.setString(2, customer.getName());
-            pstmt.setInt(3, customer.getAge());
-            pstmt.setString(4, customer.getCpf());
-            pstmt.setString(5, customer.getRg());
+            pstmt.setString(1, customer.getName());
+            pstmt.setInt(2, customer.getAge());
+            pstmt.setString(3, customer.getCpf());
+            pstmt.setString(4, customer.getRg());
 
             pstmt.executeUpdate();
-            System.out.println("Customer inserted successfully.");
+            System.out.println("Customer inserted.");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +89,7 @@ public class CustomerDAOImpl implements CustomerDAO {
             pstmt.setInt(3, id);
 
             pstmt.executeUpdate();
-            System.out.println("Customer updated successfully.");
+            System.out.println("Customer updated.");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -104,7 +105,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
-            System.out.println("Customer deleted successfully.");
+            System.out.println("Customer deleted.");
 
         } catch (SQLException e) {
             e.printStackTrace();
