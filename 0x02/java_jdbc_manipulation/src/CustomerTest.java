@@ -10,7 +10,48 @@ public class CustomerTest {
         
         // Connect is the operation that physically creates the file if it doesn't exist.
         System.out.println("--- 1) Attempting Connection and Database Creation ---");
+        customerpublic class CustomerTest {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:sqlite:sqlite_database_marco_2022.db";
+
+        CustomerDAOImpl customerDAOImpl = new CustomerDAOImpl();
+        System.out.println("--- 1) Connecting and creating DB ---");
         customerDAOImpl.connect(url);
+
+        System.out.println("\n--- 2) Creating Table ---");
+        customerDAOImpl.createTable(url);
+
+        Customer c1 = new Customer();
+        c1.setName("Danilo R. Pereira");
+        c1.setAge(37);
+        c1.setCpf("111.111.111-11");
+        c1.setRg("222.222.222-22");
+
+        Customer c2 = new Customer();
+        c2.setName("Joao Oliveira Silva");
+        c2.setAge(55);
+        c2.setCpf("888.111.111-11");
+        c2.setRg("777.222.222-22");
+
+        System.out.println("\n--- 3) Inserting Customers ---");
+        customerDAOImpl.insert(url, c1);
+        customerDAOImpl.insert(url, c2);
+
+        System.out.println("\n--- 4) Selecting All ---");
+        customerDAOImpl.selectAll(url);
+
+        System.out.println("\n--- 5) Updating Customer ID 1 ---");
+        customerDAOImpl.update(url, 1, "Danilo Rodrigues Pereira", 38);
+        customerDAOImpl.selectAll(url);
+
+        System.out.println("\n--- 6) Deleting Customer ID 2 ---");
+        customerDAOImpl.delete(url, 2);
+        customerDAOImpl.selectAll(url);
+    }
+}
+DAOImpl.connect(url);
 
         // 2) Creating the table 
         System.out.println("\n--- 2) Creating Customer Table ---");
