@@ -21,13 +21,6 @@ public class Contact {
         return type;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Contact)) return false;
-        Contact other = (Contact) obj;
-        return this.name.equals(other.name);
-    }
 
     @Override
     public String toString() {
