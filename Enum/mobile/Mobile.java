@@ -40,13 +40,14 @@ public class Mobile {
     }
 
     
-    public void removeContact(Contact contact) throws Exception {
-        int position = getContactPosition(contact.getName());
-        if (position == -1) {
-            throw new Exception("Could not remove contact. Contact does not exist");
-        }
-        contacts.remove(position);
+ public void removeContact(Contact contact) throws Exception {
+    int position = getContactPosition(contact.getName());
+    if (position == -1) {
+        throw new Exception("Could not modify contact. Contact does not exist");
     }
+    contacts.remove(position);
+}
+
 
     public void listContacts() {
         for (Contact c : contacts) {
