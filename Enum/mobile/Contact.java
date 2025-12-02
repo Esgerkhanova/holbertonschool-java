@@ -9,3 +9,19 @@ public class Contact{
     this.type=type;
   }
   
+public String getName(){
+  return name;
+}
+  public String getPhoneNumber()}
+    return phoneNumber;
+}
+
+public Syring getType(){
+  return type;
+}
+
+
+@Override
+  public String toString(){
+  return name+" -> "+phoneNumber+" ("+type+")";
+}
