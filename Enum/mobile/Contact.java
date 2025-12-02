@@ -1,6 +1,11 @@
 public class Contact{
   private String name;
-  private int phoneNumber;
+  private String phoneNumber;
   private NumberType type;
-  
+
+  public Contact(String name, String phoneNumber, NumberType type){
+    this.name=name;
+    this.phoneNumber=phoneNumber;
+    this.type=type;
+  }
   
