@@ -16,10 +16,8 @@ public class Phone {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
 
         Phone phone = (Phone) obj;
         return areaCode.equals(phone.areaCode) &&
