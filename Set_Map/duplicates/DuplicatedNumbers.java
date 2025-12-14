@@ -5,15 +5,14 @@ public class DuplicatedNumbers {
 
     public static TreeSet<Integer> isFind(int[] numbers) {
         HashSet<Integer> seen = new HashSet<>();
-        TreeSet<Integer> duplicates = new TreeSet<>();
+        HashSet<Integer> duplicated = new HashSet<>();
 
-        for (int num : numbers) {
-            if (!seen.add(num)) {
-                duplicates.add(num);
+        for (int number : numbers) {
+            if (!seen.add(number)) {
+                duplicated.add(number);
             }
         }
 
-     return new TreeSet<>(duplicated);
-
+        return new TreeSet<>(duplicated);
     }
 }
