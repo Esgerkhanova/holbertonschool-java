@@ -1,22 +1,44 @@
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class PhoneList {
 
-    private HashMap<String, ArrayList<Phone>> phoneMap;
+    private Map<String, HashSet<Phone>> peoplePhones;
 
     public PhoneList() {
-        phoneMap = new HashMap<>();
+        peoplePhones = new HashMap<>();
     }
 
-    public void addPhone(String name, Phone phone) {
-        if (!phoneMap.containsKey(name)) {
-            phoneMap.put(name, new ArrayList<>());
+    // Returns the person's phones (or null if person not found)
+    public Set<Phone> isFind(String name) {
+        return peoplePhones.get(name);
+    }
+
+    // Must return HashSet<Phone> and enforce duplicate rules
+    public HashSet<Phone> addPhone(String name, Phone phone) throws Exception {
+        HashSet<Phone> phonesOfPerson = peoplePhones.get(name);
+
+        if (phonesOfPerson == null) {
+            phonesOfPerson = new HashSet<>();
+            peoplePhones.put(name, phonesOfPerson);
         }
-        phoneMap.get(name).add(phone);
-    }
 
-    public ArrayList<Phone> isFind(String name) {
-        return phoneMap.getOrDefault(name, null);
+        // Rule 1: person already has that phone
+        if (phonesOfPerson.contains(phone)) {
+            throw new Exception("Phone already exists for this person.");
+        }
+
+        // Rule 2: another person already has that phone
+        for (Map.Entry<String, HashSet<Phone>> entry : peoplePhones.entrySet()) {
+            String otherName = entry.getKey();
+            if (!otherName.equals(name) && entry.getValue().contains(phone)) {
+                throw new Exception("Phone already belongs to another person.");
+            }
+        }
+
+        phonesOfPerson.add(phone);
+        return phonesOfPerson;
     }
 }
