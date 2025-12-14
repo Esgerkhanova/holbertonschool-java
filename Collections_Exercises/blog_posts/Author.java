@@ -4,6 +4,7 @@ public class Author implements Comparable<Author> {
     private String name;
     private String surname;
 
+    // MUST be exactly this signature for the checker:
     public Author(String name, String surname) {
         this.name = name;
         this.surname = surname;
