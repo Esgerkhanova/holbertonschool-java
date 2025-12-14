@@ -17,22 +17,8 @@ public class Phone {
         return number;
     }
 
-    @Override
-    public String toString() {
-        return "(" + areaCode + ") " + number;
-    }
+   }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Phone phone = (Phone) obj;
-        return areaCode.equals(phone.areaCode) &&
-               number.equals(phone.number);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(areaCode, number);
-    }
+  
 }
