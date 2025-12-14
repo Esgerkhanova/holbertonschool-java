@@ -14,8 +14,8 @@ public class Blog {
         this.posts = new ArrayList<>();
     }
 
-    // Do NOT declare "throws Exception" (Program.java doesn't catch for normal adds)
     public void addPost(Post post) {
+        // Duplicate rule: same author + same title
         for (Post p : posts) {
             if (p.getAuthor().equals(post.getAuthor()) &&
                 p.getTitle().equals(post.getTitle())) {
@@ -42,7 +42,6 @@ public class Blog {
         return count;
     }
 
-    // sorted by title because Post is Comparable
     public Set<Post> getPostsByAuthor(Author author) {
         Set<Post> result = new TreeSet<>();
         for (Post post : posts) {
@@ -71,6 +70,7 @@ public class Blog {
             map.putIfAbsent(cat, new TreeSet<>());
             map.get(cat).add(post);
         }
+
         return map;
     }
 
@@ -78,10 +78,11 @@ public class Blog {
         Map<Author, Set<Post>> map = new TreeMap<>();
 
         for (Post post : posts) {
-            Author a = post.getAuthor();
-            map.putIfAbsent(a, new TreeSet<>());
-            map.get(a).add(post);
+            Author author = post.getAuthor();
+            map.putIfAbsent(author, new TreeSet<>());
+            map.get(author).add(post);
         }
+
         return map;
     }
 }
