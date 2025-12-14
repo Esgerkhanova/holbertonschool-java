@@ -1,38 +1,42 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class PhoneList {
-   
-    private Map<String, HashSet<Phone>> phones;
+
+    private Map<String, LinkedHashSet<Phone>> peoplePhones;
 
     public PhoneList() {
-        this.phones = new HashMap<>();
+        peoplePhones = new HashMap<>();
     }
 
-  
-    public HashSet<Phone> addPhone(String name, Phone phone) {
+    public Set<Phone> isFind(String name) {
+        return peoplePhones.get(name);
+    }
 
-        if (phones.containsKey(name) && phones.get(name).contains(phone)) {
-            throw new IllegalArgumentException("Phone already exists for this person");
+    public LinkedHashSet<Phone> addPhone(String name, Phone phone) throws Exception {
+        LinkedHashSet<Phone> phonesOfPerson = peoplePhones.get(name);
+
+        if (phonesOfPerson == null) {
+            phonesOfPerson = new LinkedHashSet<>();
+            peoplePhones.put(name, phonesOfPerson);
         }
 
-   
-        for (Map.Entry<String, HashSet<Phone>> entry : phones.entrySet()) {
-            if (!entry.getKey().equals(name) && entry.getValue().contains(phone)) {
-                throw new IllegalArgumentException("Phone already belongs to another person");
+        // same person already has it
+        if (phonesOfPerson.contains(phone)) {
+            throw new Exception("Phone already exists for this person");
+        }
+
+        // another person already has it
+        for (Map.Entry<String, LinkedHashSet<Phone>> entry : peoplePhones.entrySet()) {
+            String otherName = entry.getKey();
+            if (!otherName.equals(name) && entry.getValue().contains(phone)) {
+                throw new Exception("Phone already belongs to another person");
             }
         }
 
-     
-        HashSet<Phone> personPhones = phones.getOrDefault(name, new HashSet<>());
-
-        personPhones.add(phone);
-        phones.put(name, personPhones);
-
-        return personPhones;
-    }
-
-   
-    public Set<Phone> isFind(String name) {
-        return phones.get(name);
+        phonesOfPerson.add(phone);
+        return phonesOfPerson;
     }
 }
