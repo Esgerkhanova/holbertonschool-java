@@ -21,7 +21,7 @@ public class Phone {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Phone phone = (Phone) o;
+        Phone phone =o;
         return Objects.equals(areaCode, phone.areaCode) &&
                Objects.equals(number, phone.number);
     }
