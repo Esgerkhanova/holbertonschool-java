@@ -9,14 +9,6 @@ public class Phone {
         this.number = number;
     }
 
-    public String getAreaCode() {
-        return areaCode;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
