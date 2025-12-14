@@ -13,6 +13,7 @@ public class DuplicatedNumbers {
             }
         }
 
-        return duplicates;
+     return new TreeSet<>(duplicated);
+
     }
 }
