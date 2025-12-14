@@ -10,19 +10,18 @@ public class PhoneList {
         phoneMap = new HashMap<>();
     }
 
-    public HashSet<Phone> addPhone(String name, Phone phone) throws Exception {
+    public HashSet<Phone> addPhone(String name, Phone phone) {
+    
         for (String person : phoneMap.keySet()) {
             if (!person.equals(name) && phoneMap.get(person).contains(phone)) {
-                throw new Exception("Phone already belongs to another person.");
+                throw new RuntimeException("Phone already belongs to another person.");
             }
         }
 
-       
         phoneMap.putIfAbsent(name, new HashSet<>());
 
-        
         if (phoneMap.get(name).contains(phone)) {
-            throw new Exception("Phone already exists for this person.");
+            throw new RuntimeException("Phone already exists for this person.");
         }
 
         phoneMap.get(name).add(phone);
