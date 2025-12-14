@@ -1,28 +1,38 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class PhoneList {
-
-    private HashMap<String, HashSet<Phone>> phoneMap;
+   
+    private Map<String, HashSet<Phone>> phones;
 
     public PhoneList() {
-        phoneMap = new HashMap<>();
+        this.phones = new HashMap<>();
     }
 
+  
     public HashSet<Phone> addPhone(String name, Phone phone) {
-        // Check if phone already belongs to another person
-        for (String person : phoneMap.keySet()) {
-            if (!person.equals(name) && phoneMap.get(person).contains(phone)) {
-                throw new RuntimeException("Phone already belongs to another person");
+
+        if (phones.containsKey(name) && phones.get(name).contains(phone)) {
+            throw new IllegalArgumentException("Phone already exists for this person");
+        }
+
+   
+        for (Map.Entry<String, HashSet<Phone>> entry : phones.entrySet()) {
+            if (!entry.getKey().equals(name) && entry.getValue().contains(phone)) {
+                throw new IllegalArgumentException("Phone already belongs to another person");
             }
         }
 
-        phoneMap.putIfAbsent(name, new HashSet<>());
+     
+        HashSet<Phone> personPhones = phones.getOrDefault(name, new HashSet<>());
 
-        // Check if phone already exists for this person
-        if (phoneMap.get(name).contains(phone)) {
-            throw new RuntimeException("Phone already exists for this person");
-        }
+        personPhones.add(phone);
+        phones.put(name, personPhones);
 
-        phoneMap.get(name).add(ph
+        return personPhones;
+    }
+
+   
+    public Set<Phone> isFind(String name) {
+        return phones.get(name);
+    }
+}
