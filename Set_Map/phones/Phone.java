@@ -20,7 +20,7 @@ public class Phone {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Phone)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Phone phone = (Phone) o;
         return Objects.equals(areaCode, phone.areaCode) &&
                Objects.equals(number, phone.number);
