@@ -3,28 +3,24 @@ import java.util.TreeMap;
 public class PhraseAnalyzer {
 
     public static TreeMap<String, Integer> wordCount(String sentence) {
-        TreeMap<String, Integer> counts = new TreeMap<>();
+        TreeMap<String, Integer> map = new TreeMap<>();
 
         if (sentence == null || sentence.isEmpty()) {
-            return counts;
+            return map;
         }
 
-        // 1) Normalize: lowercase + remove ? . !
-        String normalized = sentence
-                .toLowerCase()
-                .replace("?", "")
-                .replace(".", "")
-                .replace("!", "");
+        // Convert to lowercase
+        sentence = sentence.toLowerCase();
 
-        // 2) Split by any whitespace and/or commas (matches your test phrases)
-        String[] words = normalized.split("[\\s,]+");
+        // Split using space and punctuation as delimiters
+        String[] words = sentence.split("[\\s?!.,]+");
 
-        // 3) Count
-        for (String w : words) {
-            if (w.isEmpty()) continue;
-            counts.put(w, counts.getOrDefault(w, 0) + 1);
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                map.put(word, map.getOrDefault(word, 0) + 1);
+            }
         }
 
-        return counts;
+        return map;
     }
 }
