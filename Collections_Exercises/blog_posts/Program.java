@@ -68,7 +68,8 @@
 
             System.out.println(postsDevOps);
 
-            Set<Post> postsDev = blog1.getPostsByCategory(Categories.DESENVOLVIMENTO);
+           Set<Post> postsDev = blog1.getPostsByCategory(Categories.DEVELOPMENT);
+
 
             System.out.println(postsDev); 
 
