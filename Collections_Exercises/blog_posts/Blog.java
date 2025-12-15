@@ -1,25 +1,14 @@
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Blog {
+    private final Set<Post> posts = new HashSet<>();
 
-    private List<Post> posts;
-
-    public Blog() {
-        this.posts = new ArrayList<>();
-    }
-
-    public void addPost(Post post) {
+    public void addPost(Post post) throws Exception {
         // Duplicate rule: same author + same title
         for (Post p : posts) {
             if (p.getAuthor().equals(post.getAuthor()) &&
                 p.getTitle().equals(post.getTitle())) {
-                throw new RuntimeException("Post already exists");
+                throw new Exception("Post already exists");
             }
         }
         posts.add(post);
@@ -27,26 +16,26 @@ public class Blog {
 
     public Set<Author> getAllAuthors() {
         Set<Author> authors = new TreeSet<>();
-        for (Post post : posts) {
-            authors.add(post.getAuthor());
+        for (Post p : posts) {
+            authors.add(p.getAuthor());
         }
         return authors;
     }
 
     public Map<Categories, Integer> getCountByCategory() {
         Map<Categories, Integer> count = new EnumMap<>(Categories.class);
-        for (Post post : posts) {
-            Categories cat = post.getCategory();
-            count.put(cat, count.getOrDefault(cat, 0) + 1);
+        for (Post p : posts) {
+            Categories c = p.getCategory();
+            count.put(c, count.getOrDefault(c, 0) + 1);
         }
         return count;
     }
 
     public Set<Post> getPostsByAuthor(Author author) {
         Set<Post> result = new TreeSet<>();
-        for (Post post : posts) {
-            if (post.getAuthor().equals(author)) {
-                result.add(post);
+        for (Post p : posts) {
+            if (p.getAuthor().equals(author)) {
+                result.add(p);
             }
         }
         return result;
@@ -54,9 +43,9 @@ public class Blog {
 
     public Set<Post> getPostsByCategory(Categories category) {
         Set<Post> result = new TreeSet<>();
-        for (Post post : posts) {
-            if (post.getCategory() == category) {
-                result.add(post);
+        for (Post p : posts) {
+            if (p.getCategory() == category) {
+                result.add(p);
             }
         }
         return result;
@@ -64,25 +53,17 @@ public class Blog {
 
     public Map<Categories, Set<Post>> getAllPostsByCategories() {
         Map<Categories, Set<Post>> map = new EnumMap<>(Categories.class);
-
-        for (Post post : posts) {
-            Categories cat = post.getCategory();
-            map.putIfAbsent(cat, new TreeSet<>());
-            map.get(cat).add(post);
+        for (Post p : posts) {
+            map.computeIfAbsent(p.getCategory(), k -> new TreeSet<>()).add(p);
         }
-
         return map;
     }
 
     public Map<Author, Set<Post>> getAllPostsByAuthor() {
         Map<Author, Set<Post>> map = new TreeMap<>();
-
-        for (Post post : posts) {
-            Author author = post.getAuthor();
-            map.putIfAbsent(author, new TreeSet<>());
-            map.get(author).add(post);
+        for (Post p : posts) {
+            map.computeIfAbsent(p.getAuthor(), k -> new TreeSet<>()).add(p);
         }
-
         return map;
     }
 }
