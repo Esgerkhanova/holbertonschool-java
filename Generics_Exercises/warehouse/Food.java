@@ -1,3 +1,6 @@
+import java.util.Locale;
+
+
 public class Food {
     private String name;
     private double calories;
@@ -21,8 +24,8 @@ public class Food {
         return price;
     }
 
-    @Override
-    public String toString() {
-        return String.format("[%s] %.6f $ %.6f", name, calories, price);
-    }
+@Override
+public String toString() {
+    return String.format(Locale.GERMANY, "[%s] %.6f $ %.6f", name, calories, price);
+}
 }
