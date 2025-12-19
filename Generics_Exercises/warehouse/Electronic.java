@@ -1,3 +1,6 @@
+import java.util.Locale;
+
+
 public class Electronic {
     private String description;
     private double value;
@@ -15,8 +18,8 @@ public class Electronic {
         return value;
     }
 
-    @Override
-    public String toString() {
-        return String.format("[%s] $ %.6f", description, value);
-    }
+  @Override
+public String toString() {
+    return String.format(Locale.GERMANY, "[%s] $ %.6f", description, value);
+}
 }
