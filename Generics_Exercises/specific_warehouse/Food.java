@@ -25,10 +25,7 @@ public class Food {
 
     @Override
     public String toString() {
-        // If your checker expects comma decimals:
         return String.format(Locale.GERMANY, "[%s] %.6f $ %.6f", name, calories, price);
 
-        // If your checker expects dot decimals instead, use this line:
-        // return String.format("[%s] %.6f $ %.6f", name, calories, price);
     }
 }
