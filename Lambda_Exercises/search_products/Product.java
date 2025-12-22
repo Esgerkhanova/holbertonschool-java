@@ -36,6 +36,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return name + " " + price + " " + weight + " " + stockQuantity + " " + type;
+        return name + " " + 
+            price + " " +
+            weight + " " +
+            stockQuantity + " " + 
+            type;
     }
 }
