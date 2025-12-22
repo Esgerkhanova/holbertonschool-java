@@ -1,19 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 
-public class ProductSearch {
+class ProductSearch {
 
-    public static List<Product> filter(List<Product> products, Predicate<Product> predicate) {
+static List filter(List products, Predicate predicate) {
+    List result = new ArrayList();
 
-        List<Product> result = new ArrayList<>();
-
-        for (Product product : products) {
-            if (predicate.test(product)) {
-                result.add(product);
-            }
+    for (Object obj : products) {
+        Product product = (Product) obj;
+        if (predicate.test(product)) {
+            result.add(product);
         }
-
-        return result;
     }
+
+    return result;
+}
+
 }
