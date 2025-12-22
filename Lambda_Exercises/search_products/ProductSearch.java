@@ -1,18 +1,14 @@
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
-class ProductSearch {
-
-static List filter(List products, FilterCriteria criteria) {
-    List result = new ArrayList();
-
-    for (Object obj : products) {
-        Product product = (Product) obj;
-        if (criteria.test(product)) {
-            result.add(product);
+public class ProductSearch {
+    public static List<Product> filter(List<Product> products, FilterCriteria criteria) {
+        List<Product> result = new ArrayList<>();
+        for (Product product : products) {
+            if (criteria.test(product)) {
+                result.add(product);
+            }
         }
+        return result;
     }
-
-    return result;
-}
-
 }
