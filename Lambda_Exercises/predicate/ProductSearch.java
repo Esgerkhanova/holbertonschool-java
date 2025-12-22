@@ -3,11 +3,10 @@ import java.util.function.Predicate;
 
 class ProductSearch {
 
-static List filter(List products, Predicate predicate) {
-    List result = new ArrayList();
+static List<Product> filter(List<Product> products, Predicate<Product> predicate) {
+    List<Product> result = new ArrayList<>();
 
-    for (Object obj : products) {
-        Product product = (Product) obj;
+    for (Product product : products) {
         if (predicate.test(product)) {
             result.add(product);
         }
