@@ -30,7 +30,6 @@ public class Product {
         return price;
     }
 
-  
     public void setPrice(double price) {
         this.price = price;
     }
@@ -38,7 +37,7 @@ public class Product {
     @Override
     public String toString() {
         return String.format(
-                Locale.US,
+                Locale.GERMANY,  
                 "[%d] %s %s $ %.2f",
                 code, name, category, price
         );
