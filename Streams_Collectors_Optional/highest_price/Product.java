@@ -33,7 +33,7 @@ public class Product {
     @Override
     public String toString() {
         return String.format(
-                Locale.US,
+                Locale.GERMANY,   // 👈 əsas dəyişiklik
                 "[%d] %s %s $ %.2f",
                 code, name, category, price
         );
