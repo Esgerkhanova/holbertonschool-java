@@ -30,7 +30,7 @@ public class Product {
         return price;
     }
 
-    // 👇 YENİ METOD
+  
     public void setPrice(double price) {
         this.price = price;
     }
