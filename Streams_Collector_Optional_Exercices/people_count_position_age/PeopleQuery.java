@@ -4,9 +4,7 @@ import java.util.stream.Collectors;
 
 public class PeopleQuery {
 
-    static Map<String, Map<Integer, Long>>
-    getPeopleCountByPositionAndAge(List<Person> people) {
-
+    static Map<String, Map<Integer, Long>> getPeopleCountByPositionAndAge(List<Person> people) {
         return people.stream()
                 .collect(Collectors.groupingBy(
                         Person::getPosition,
