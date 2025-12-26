@@ -36,7 +36,7 @@ public class Person implements Comparable<Person> {
         return salary;
     }
 
-    )
+   
     @Override
     public int compareTo(Person other) {
         return this.name.compareTo(other.name);
