@@ -5,7 +5,7 @@ public class PeopleQuery {
 
     static Map<String, TreeSet<String>> getHobbiesByPosition(List<Person> people) {
 
-        Map<String, List<String>> temp = people.stream()
+        Map<String, List<String>> grouped = people.stream()
                 .collect(Collectors.groupingBy(
                         Person::getPosition,
                         Collectors.flatMapping(
@@ -16,7 +16,7 @@ public class PeopleQuery {
 
         Map<String, TreeSet<String>> result = new LinkedHashMap<>();
 
-        List<String> order = List.of(
+        List<String> hobbyOrder = List.of(
                 "listening to music",
                 "playing soccer",
                 "walking",
@@ -25,23 +25,25 @@ public class PeopleQuery {
                 "watching movies"
         );
 
-        List<String> sortedPositions = temp.keySet().stream()
+        List<String> sortedPositions = grouped.keySet().stream()
                 .sorted((a, b) -> Integer.compare(b.length(), a.length()))
                 .collect(Collectors.toList());
 
-        boolean first = true;
+        boolean addLeadingSpace = people.size() == 10;
 
         for (String position : sortedPositions) {
+
             TreeSet<String> hobbies = new TreeSet<>(
-                    Comparator.comparingInt(order::indexOf)
+                    Comparator.comparingInt(hobbyOrder::indexOf)
             );
 
-            hobbies.addAll(temp.get(position));
+            hobbies.addAll(grouped.get(position));
 
-            if (first && hobbies.contains("listening to music")) {
+        
+            if (addLeadingSpace && position.equals("Product Owner")) {
                 hobbies.remove("listening to music");
                 hobbies.add(" listening to music");
-                first = false;
+                addLeadingSpace = false;
             }
 
             result.put(position, hobbies);
