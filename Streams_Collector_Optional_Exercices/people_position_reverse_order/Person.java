@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Person implements Comparable<Person> {
 
     private int code;
@@ -34,18 +36,19 @@ public class Person implements Comparable<Person> {
         return salary;
     }
 
- 
+    )
     @Override
     public int compareTo(Person other) {
-        return Integer.compare(this.code, other.code);
+        return this.name.compareTo(other.name);
     }
 
+    
     @Override
     public String toString() {
-        return "[" + code + "] " +
-               name + " " +
-               position + " " +
-               age + " $ " +
-               salary;
+        return String.format(
+                Locale.GERMANY,
+                "[%d] %s %s %d $ %.6f",
+                code, name, position, age, salary
+        );
     }
 }
