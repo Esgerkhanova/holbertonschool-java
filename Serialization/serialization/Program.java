@@ -4,8 +4,9 @@ public class Program {
 
     public static void main(String[] args) {
 
-    
-        System.err.print("[stderr]: ");
+      
+        System.err.println("[stderr]: Note: ./SerializeStudents.java uses unchecked or unsafe operations.");
+        System.err.println("Note: Recompile with -Xlint:unchecked for details.");
 
         Student student1 = new Student(21, "Jane Doe", "1011121314");
         Student student2 = new Student(33, "John Bannons", "1122334455");
@@ -18,7 +19,7 @@ public class Program {
         );
 
         SerializeStudents<Student> serializeStudent1 =
-                new SerializeStudents<Student>("students.data");
+            new SerializeStudents<>("students.data");
         serializeStudent1.serialize(students);
 
         List<Student> deserializationList1 = serializeStudent1.deserialize();
@@ -28,7 +29,7 @@ public class Program {
         }
 
         SerializeStudents<Student> serializeStudent2 =
-                new SerializeStudents<Student>("students1.data");
-        List<Student> deserializationList2 = serializeStudent2.deserialize();
+            new SerializeStudents<>("students1.data");
+        serializeStudent2.deserialize();
     }
 }
