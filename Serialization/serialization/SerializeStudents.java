@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class SerializeStudents<T extends Serializable> {
 
     private String fileName;
@@ -21,7 +22,7 @@ public class SerializeStudents<T extends Serializable> {
     public List<T> deserialize() {
         try (ObjectInputStream ois =
                  new ObjectInputStream(new FileInputStream(fileName))) {
-            return (List<T>) ois.readObject(); // unchecked → warning lazımdır
+            return (List<T>) ois.readObject();
         } catch (Exception e) {
             System.out.println("Unable to deserialize");
             return null;
