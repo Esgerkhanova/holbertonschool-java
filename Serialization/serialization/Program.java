@@ -3,6 +3,7 @@ import java.util.List;
 public class Program {
 
     public static void main(String[] args) {
+        System.err.print("");
 
         Student student1 = new Student(21, "Jane Doe", "1011121314");
         Student student2 = new Student(33, "John Bannons", "1122334455");
