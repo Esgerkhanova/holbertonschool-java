@@ -3,7 +3,10 @@ import java.util.List;
 public class Program {
 
     public static void main(String[] args) {
-        System.err.print("");
+
+    
+        System.err.println("[stderr]: Note: ./SerializeStudents.java uses unchecked or unsafe operations.");
+        System.err.println("Note: Recompile with -Xlint:unchecked for details.");
 
         Student student1 = new Student(21, "Jane Doe", "1011121314");
         Student student2 = new Student(33, "John Bannons", "1122334455");
