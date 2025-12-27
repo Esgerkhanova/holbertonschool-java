@@ -20,12 +20,11 @@ public class SerializeStudents<T extends Serializable> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public List<T> deserialize() {
         try (ObjectInputStream ois =
                      new ObjectInputStream(new FileInputStream(fileName))) {
 
-            return (List<T>) ois.readObject();
+            return (List<T>) ois.readObject(); 
 
         } catch (Exception e) {
             System.out.println("Unable to deserialize");
