@@ -1,7 +1,7 @@
+-- TABLE: CLIENT
 CREATE TABLE CLIENT (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT,
     phone TEXT
 );
-
