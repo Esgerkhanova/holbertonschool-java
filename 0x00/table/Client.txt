@@ -9,4 +9,4 @@ INSERT INTO CLIENT (name, email, phone) VALUES
 ('Anna', 'anna@test.com', 22222222),
 ('Mike', 'mike@test.com', 33333333),
 ('Sara', 'sara@test.com', 44444444),
-('Tom', 'tom@test.com', 55555555);
+
