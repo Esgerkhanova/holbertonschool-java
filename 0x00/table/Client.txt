@@ -4,9 +4,4 @@ CREATE TABLE CLIENT (
     email VARCHAR(40) NOT NULL,
     phone INT
 );
-INSERT INTO CLIENT (name, email, phone) VALUES
-('John', 'john@test.com', 11111111),
-('Anna', 'anna@test.com', 22222222),
-('Mike', 'mike@test.com', 33333333),
-('Sara', 'sara@test.com', 44444444),
 
