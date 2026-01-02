@@ -9,7 +9,7 @@ public class EmailTest {
     }
 
     @Test
-    void test_email_without_at_symbol() {
+    void testar_email_sem_arroba() {
         assertFalse(Person.isEmailValid("email_testdomain.com"));
     }
 
