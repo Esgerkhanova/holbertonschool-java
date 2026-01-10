@@ -1,6 +1,6 @@
 package entities;
 
-import javax.persistence.*;
+import javax.persistence.*; 
 
 @Entity
 @Table(name = "course_materials")
