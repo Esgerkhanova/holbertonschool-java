@@ -1,18 +1,18 @@
 [
   {
     "id": 3550308,
-    "nome": "São Paulo",
+    "name": "São Paulo",
     "municipio": {
       "id": 3550308,
-      "nome": "São Paulo"
+      "name": "São Paulo"
     }
   },
   {
     "id": 3509502,
-    "nome": "Campinas",
+    "name": "Campinas",
     "municipio": {
       "id": 3509502,
-      "nome": "Campinas"
+      "name": "Campinas"
     }
   }
 ]
