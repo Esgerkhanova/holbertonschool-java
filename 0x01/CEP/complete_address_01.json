@@ -1,7 +1,9 @@
 {
-  "street": "Rua Sérgio Buarque de Holanda",
-  "neighborhood": "Cidade Universitária",
-  "city": "Campinas",
-  "state": "SP",
-  "cep": "13086-902"
+  "result": {
+    "street": "Rua Sérgio Buarque de Holanda",
+    "neighborhood": "Cidade Universitária",
+    "city": "Campinas",
+    "state": "SP",
+    "cep": "13086-902"
+  }
 }
