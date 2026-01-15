@@ -1,0 +1,18 @@
+[
+  {
+    "id": 3550308,
+    "nome": "São Paulo",
+    "municipio": {
+      "id": 3550308,
+      "nome": "São Paulo"
+    }
+  },
+  {
+    "id": 3509502,
+    "nome": "Campinas",
+    "municipio": {
+      "id": 3509502,
+      "nome": "Campinas"
+    }
+  }
+]
