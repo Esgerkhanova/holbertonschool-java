@@ -1,18 +1,6 @@
 [
   {
     "id": "BR",
-    "nome": "Brasil",
-    "regiao": {
-      "id": "019",
-      "nome": "América"
-    }
-  },
-  {
-    "id": "US",
-    "nome": "Estados Unidos",
-    "regiao": {
-      "id": "019",
-      "nome": "América"
-    }
+    "name": "Brazil"
   }
 ]
