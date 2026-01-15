@@ -2,11 +2,11 @@
   {
     "id": 35,
     "sigla": "SP",
-    "nome": "São Paulo"
+    "name": "São Paulo"
   },
   {
     "id": 33,
     "sigla": "RJ",
-    "nome": "Rio de Janeiro"
+    "name": "Rio de Janeiro"
   }
 ]
