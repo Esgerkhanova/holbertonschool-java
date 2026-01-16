@@ -1,0 +1,19 @@
+Serverless Architecture is a cloud computing execution model where the cloud provider is responsible for managing servers, infrastructure, and resource allocation. In this architecture, developers focus only on writing code,
+while the cloud provider automatically handles scaling, availability, and maintenance. Despite its name, serverless does not mean there are no servers; instead, server management is abstracted away from the developer. Resources are allocated dynamically,
+and billing is based only on actual usage.
+
+Function as a Service (FaaS) is a core component of serverless architecture. 
+It allows developers to write small, independent functions that are executed in response to events. These events can be HTTP requests, messages from a queue, file uploads, or scheduled tasks. FaaS functions are stateless, meaning they do not store data between executions.
+Any required state is managed using external services such as databases, caches, or messaging systems. The cloud provider is responsible for executing the function, handling scaling, and managing the runtime environment.
+
+Using serverless architecture provides several benefits. 
+One major advantage is cost efficiency, as users only pay for the resources consumed during function execution. There is no need to pay for idle servers. Serverless also improves scalability, as applications automatically scale up or down based on demand. Developer productivity is increased because infrastructure configuration, server maintenance, 
+and operating system management are handled by the cloud provider. This allows teams to focus on business logic and faster delivery of features.
+
+Cloud computing is the delivery of computing services such as servers, storage, databases, networking, and software over the Internet. Instead of owning and maintaining physical hardware, users access these resources on demand from cloud providers. 
+The main benefits of cloud computing include reduced capital expenses, high availability, global scalability, improved security, and faster deployment of applications. Cloud services can be adapted to different business needs and workloads.
+
+Monolithic architecture, microservices, and serverless represent different application design approaches. 
+In monolithic architecture, the entire application is built as a single unit, making it simple to develop initially but difficult to scale and maintain as it grows. Microservices architecture breaks the application into smaller, independent services that communicate with each other, 
+improving scalability and flexibility but increasing operational complexity. 
+Serverless architecture goes a step further by removing server management entirely and executing application logic as event-driven functions, offering high scalability, reduced operational effort, and a pay-per-use model.
