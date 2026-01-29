@@ -1,4 +1,4 @@
-package com.example.user.exception;
+package com.example.user.excaption;
 
 public class UserErrorResponse {
 
