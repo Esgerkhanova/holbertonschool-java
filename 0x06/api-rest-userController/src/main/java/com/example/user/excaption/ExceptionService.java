@@ -1,4 +1,4 @@
-package com.example.user.exception;
+package com.example.user.excaption;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
