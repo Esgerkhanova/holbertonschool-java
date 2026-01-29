@@ -1,42 +1,38 @@
 package com.example.user.controller;
 
-import com.example.user.exception.CPFException;
-import com.example.user.exception.UserIdException;
-import com.example.user.exception.UserNameException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
 
-  @GetMapping("/user-id/{id}")
-  public String findUserById(@PathVariable int id) {
-    if (id > 0 && id < 100) {
-      return "You have entered a valid ID";
-    }
-   
-    throw new UserIdException(String.valueOf(id));
-  }
+    @GetMapping("/user-id/{id}")
+    public String findUserById(@PathVariable int id) {
 
-  @GetMapping("/user-name/{username}")
-  public String findUserByUserName(@PathVariable String username) {
-    if (username != null && username.length() > 3 && username.length() < 15) {
-      return "You have entered a valid USERNAME";
+        if (id > 0 && id < 100) {
+            return "You have entered a valid ID";
+        }
+        return "You have entered an invalid ID.";
     }
-    throw new UserNameException(username);
-  }
 
-  @GetMapping("/user-cpf/{cpf}")
-  public String findUserByCPF(@PathVariable String cpf) {
-    boolean isCPFValid = isCPF(cpf);
-    if (isCPFValid) {
-      return "You have entered a valid CPF";
+    @GetMapping("/user-name/{username}")
+    public String findUserByUserName(@PathVariable String username) {
+
+        if (username != null && username.length() > 3 && username.length() < 15) {
+            return "You have entered a valid USERNAME";
+        }
+        return "You have entered an invalid USERNAME.";
     }
-    throw new CPFException(cpf);
-  }
 
-  
-  public boolean isCPF(String cpf) {
-    return cpf != null && cpf.length() > 3 && cpf.length() < 15;
-  }
+    @GetMapping("/user-cpf/{cpf}")
+    public String findUserByCPF(@PathVariable String cpf) {
+
+        if (cpf != null && cpf.length() > 3 && cpf.length() < 15) {
+            return "You have entered a valid CPF";
+        }
+        return "You have entered an invalid CPF.";
+    }
 }
