@@ -141,4 +141,83 @@ public class ProductController {
         repo.removeProduct(existing);
         return ResponseEntity.ok().build();
     }
+
+
+@GetMapping("/welcome")
+@ApiOperation(value = "WELCOME TO THE PRODUCT REST API.")
+public ResponseEntity<String> welcome() {
+    return ResponseEntity.ok("WELCOME TO PRODUCT REST API.");
+}
+
+@GetMapping("/allProducts")
+@ApiOperation(value = "Responsible for returning a list of products.")
+@ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 11, message = "Warning - the process returned more than 1000 products.")
+})
+public ResponseEntity<List<Product>> allProducts() {
+    return ResponseEntity.ok(repo.getAllProducts());
+}
+
+@GetMapping("/findProductById/{id}")
+@ApiOperation(value = "Responsible for returning a product by its ID.")
+@ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 404, message = "Not Found"),
+        @ApiResponse(code = 12, message = "The field id not informed. This information is required.")
+})
+public ResponseEntity<Product> findProductById(
+        @ApiParam(value = "Product ID", required = true, example = "1")
+        @PathVariable("id") Long id) {
+
+    Product p = repo.getProductById(id);
+    if (p == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    return ResponseEntity.ok(p);
+}
+
+@PostMapping("/addProducts")
+@ApiOperation(value = "Responsible for adding a product.")
+@ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 201, message = "Created"),
+        @ApiResponse(code = 10, message = "Required fields not informed.")
+})
+public ResponseEntity<Product> addProduct(
+        @ApiParam(value = "Product payload", required = true)
+        @RequestBody Product p) {
+
+    if (p == null || p.getId() == null || p.getName() == null || p.getCode() == null) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+    if (p.getCreatedOn() == null) p.setCreatedOn(LocalDateTime.now());
+    if (p.getStatus() == null) p.setStatus(true);
+
+    repo.addProduct(p);
+    return ResponseEntity.status(HttpStatus.CREATED).body(p);
+}
+
+@PutMapping("/updateProduct")
+@ApiOperation(value = "Responsible for updating a product.")
+@ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 201, message = "Created"),
+        @ApiResponse(code = 14, message = "No information has been updated. The new information is the same as recorded in the database.")
+})
+public ResponseEntity<Product> updateProduct(@RequestBody Product p) {
+ 
+    return ResponseEntity.ok(p);
+}
+
+@DeleteMapping("/removeProduct")
+@ApiOperation(value = "Responsible for removing a product.")
+@ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 13, message = "User not allowed to remove a product from this category.")
+})
+public ResponseEntity<Void> removeProduct(@RequestBody Product p) {
+
+    return ResponseEntity.ok().build();
+}
+
 }
