@@ -1,5 +1,5 @@
 public interface Builder {
-    void setName(String name);
+    void setNome(String nome);
     void setType(CharacterType type);
     void setIntelligence(int intelligence);
     void setStrength(int strength);
