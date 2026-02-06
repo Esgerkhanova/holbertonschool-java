@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class SalaryService {
 
     private SalaryCalculatorService calculator =
@@ -15,7 +17,7 @@ public class SalaryService {
         );
     }
 
-    public String getUuid() {
-        return calculator.uuid.toString();
+    public UUID getUuid() {
+        return calculator.uuid;
     }
 }
