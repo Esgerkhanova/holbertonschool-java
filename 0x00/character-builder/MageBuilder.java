@@ -1,6 +1,6 @@
 public class MageBuilder implements Builder {
 
-    private String nome;
+    private String name;
     private CharacterType type;
     private int intelligence;
     private int strength;
@@ -9,7 +9,7 @@ public class MageBuilder implements Builder {
     private int dexterity;
 
     @Override
-    public void setNome(String nome) { this.nome = nome; }
+    public void setName(String name) { this.nome = nome; }
 
     @Override
     public void setType(CharacterType type) { this.type = type; }
@@ -33,6 +33,6 @@ public class MageBuilder implements Builder {
         if (type != null && type != CharacterType.MAGE) {
             throw new IllegalArgumentException("Invalid attributes for MAGE");
         }
-        return new Mage(nome, intelligence, strength, endurance, resilience, dexterity);
+        return new Mage(name, intelligence, strength, endurance, resilience, dexterity);
     }
 }
