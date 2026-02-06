@@ -1,7 +1,7 @@
 public class Director {
 
     public void buildWarrior(Builder builder) {
-        builder.setName("Warrior");
+        builder.setNome("Warrior");
         builder.setType(CharacterType.WARRIOR);
         builder.setIntelligence(1);
         builder.setStrength(8);
@@ -11,7 +11,7 @@ public class Director {
     }
 
     public void buildThief(Builder builder) {
-        builder.setName("Thief");
+        builder.setNome("Thief");
         builder.setType(CharacterType.THIEF);
         builder.setIntelligence(2);
         builder.setStrength(6);
@@ -21,7 +21,7 @@ public class Director {
     }
 
     public void buildMage(Builder builder) {
-        builder.setName("Mage");
+        builder.setNome("Mage");
         builder.setType(CharacterType.MAGE);
         builder.setIntelligence(10);
         builder.setStrength(2);
