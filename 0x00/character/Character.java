@@ -23,12 +23,4 @@ public abstract class Character {
     }
 
     public abstract double getAttackDamage();
-
-    @Override
-    public String toString() {
-        return String.format(
-            "Character { name = %s, type = %s, intelligence = %d, strength = %d, endurance = %d, resilience = %d, dexterity = %d, attack damage = %.2f }",
-            name, type, intelligence, strength, endurance, resilience, dexterity, getAttackDamage()
-        );
-    }
 }
