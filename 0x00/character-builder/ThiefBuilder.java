@@ -1,6 +1,6 @@
 public class ThiefBuilder implements Builder {
 
-    private String name;
+    private String nome;
     private CharacterType type;
     private int intelligence;
     private int strength;
@@ -9,7 +9,7 @@ public class ThiefBuilder implements Builder {
     private int dexterity;
 
     @Override
-    public void setName(String name) { this.name = name; }
+    public void setNome(String nome) { this.nome = nome; }
 
     @Override
     public void setType(CharacterType type) { this.type = type; }
@@ -33,6 +33,6 @@ public class ThiefBuilder implements Builder {
         if (type != null && type != CharacterType.THIEF) {
             throw new IllegalArgumentException("Invalid attributes for THIEF");
         }
-        return new Thief(name, intelligence, strength, endurance, resilience, dexterity);
+        return new Thief(nome, intelligence, strength, endurance, resilience, dexterity);
     }
 }
