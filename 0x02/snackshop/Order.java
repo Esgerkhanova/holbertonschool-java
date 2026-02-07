@@ -21,20 +21,41 @@ public class Order {
             }
         }
     }
+@Override
+public String toString() {
+    StringBuilder sb = new StringBuilder();
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("Out of the Box:\n\n");
-        appendFirstMatch(sb, itemsOutOfBox, OrderItemType.DRINK);
-
-        sb.append("\nIn the Box:\n");
-        appendFirstMatch(sb, itemsInBox, OrderItemType.TOY);
-        appendFirstMatch(sb, itemsInBox, OrderItemType.FRIES);
-        appendFirstMatch(sb, itemsInBox, OrderItemType.SNACK);
-
-        sb.append("\n");
-        return sb.toString();
+    sb.append("Out of the Box:\n\n");
+    for (OrderItem item : itemsOutOfBox) {
+        if (item.getType() == OrderItemType.DRINK) {
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
+            break;
+        }
     }
+
+    sb.append("\nIn the Box:\n");
+    
+    for (OrderItem item : itemsInBox) {
+        if (item.getType() == OrderItemType.TOY) {
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
+            break;
+        }
+    }
+    for (OrderItem item : itemsInBox) {
+        if (item.getType() == OrderItemType.FRIES) {
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
+            break;
+        }
+    }
+    for (OrderItem item : itemsInBox) {
+        if (item.getType() == OrderItemType.SNACK) {
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
+            break;
+        }
+    }
+
+    sb.append("\n");
+    return sb.toString();
+}
+
 }
