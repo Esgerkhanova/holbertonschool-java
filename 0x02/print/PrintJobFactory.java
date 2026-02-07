@@ -1,7 +1,7 @@
 public class PrintJobFactory {
 
     public static PrintJob createPrintJob(
-            PrintSize printSize,
+            PrintSize size,
             int totalPages,
             int colorPages,
             boolean isDoubleSided
@@ -12,7 +12,7 @@ public class PrintJobFactory {
         double colorSingle;
         double bwSingle;
 
-        switch (printSize) {
+        switch (size) {
             case A2:
                 colorSingle = 0.32;
                 bwSingle = 0.22;
