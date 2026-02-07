@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class OrderItem {
-    private final OrderItemType type;
-    private final String name;
+    private OrderItemType type;
+    private String name;
 
     public OrderItem(OrderItemType type, String name) {
         this.type = type;
@@ -13,8 +13,16 @@ public class OrderItem {
         return type;
     }
 
+    public void setType(OrderItemType type) {
+        this.type = type;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
