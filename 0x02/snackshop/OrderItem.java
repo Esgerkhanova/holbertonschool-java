@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class OrderItem {
-    private OrderItemType type;
-    private String name;
+    private final OrderItemType type;
+    private final String name;
 
     public OrderItem(OrderItemType type, String name) {
         this.type = type;
@@ -17,22 +17,16 @@ public class OrderItem {
         return name;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof OrderItem)) return false;
-        OrderItem that = (OrderItem) o;
-        return type == that.type && Objects.equals(name, that.name);
+        OrderItem orderItem = (OrderItem) o;
+        return type == orderItem.type && Objects.equals(name, orderItem.name);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(type, name);
-    }
-
-    @Override
-    public String toString() {
-        return type + " " + name;
     }
 }
