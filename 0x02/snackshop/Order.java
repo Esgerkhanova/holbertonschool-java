@@ -1,10 +1,9 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 public class Order {
 
-    private HashSet<OrderItem> itemsInBox = new HashSet<>();
-    private HashSet<OrderItem> itemsOutOfBox = new HashSet<>();
+    private LinkedHashSet<OrderItem> itemsInBox = new LinkedHashSet<>();
+    private LinkedHashSet<OrderItem> itemsOutOfBox = new LinkedHashSet<>();
 
     public void addItemInBox(OrderItem item) {
         itemsInBox.add(item);
@@ -14,28 +13,21 @@ public class Order {
         itemsOutOfBox.add(item);
     }
 
-    public Set<OrderItem> getItemsInBox() {
-        return itemsInBox;
-    }
-
-    public Set<OrderItem> getItemsOutOfBox() {
-        return itemsOutOfBox;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\tOut of the Box:\n");
+        sb.append("Out of the Box:\n");
         for (OrderItem item : itemsOutOfBox) {
-            sb.append("\t\t- ").append(item).append("\n");
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
         }
 
-        sb.append("\tIn the Box:\n");
+        sb.append("\nIn the Box:\n");
         for (OrderItem item : itemsInBox) {
-            sb.append("\t\t- ").append(item).append("\n");
+            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
         }
 
+        sb.append("\n");
         return sb.toString();
     }
 }
