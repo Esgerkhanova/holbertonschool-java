@@ -1,48 +1,28 @@
 public class OrderBuilder extends OrderAbstractBuilder {
 
-    private final Order order = new Order();
-
-    private SnackType snack;
-    private FriesSize fries;
-    private ToyType toy;
-    private DrinkType drink;
+    private Order order = new Order();
 
     @Override
     public void setSnack(SnackType type) {
-        this.snack = type;
+        order.addItemInBox(new OrderItem(OrderItemType.SNACK, type.name()));
     }
 
     @Override
     public void setFries(FriesSize size) {
-        this.fries = size;
+        order.addItemInBox(new OrderItem(OrderItemType.FRIES, size.name()));
     }
 
     @Override
     public void setToy(ToyType type) {
-        this.toy = type;
+        order.addItemInBox(new OrderItem(OrderItemType.TOY, type.name()));
     }
 
     @Override
     public void setDrink(DrinkType type) {
-        this.drink = type;
+        order.addItemOutOfBox(new OrderItem(OrderItemType.DRINK, type.name()));
     }
 
     public Order build() {
-    
-        if (drink != null) {
-            order.addItemOutOfBox(new OrderItem(OrderItemType.DRINK, drink.name()));
-        }
-
-        if (toy != null) {
-            order.addItemInBox(new OrderItem(OrderItemType.TOY, toy.name()));
-        }
-        if (fries != null) {
-            order.addItemInBox(new OrderItem(OrderItemType.FRIES, fries.name()));
-        }
-        if (snack != null) {
-            order.addItemInBox(new OrderItem(OrderItemType.SNACK, snack.name()));
-        }
-
         return order;
     }
 }
