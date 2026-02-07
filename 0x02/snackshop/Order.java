@@ -1,9 +1,9 @@
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 
 public class Order {
 
-    private LinkedHashSet<OrderItem> itemsInBox = new LinkedHashSet<>();
-    private LinkedHashSet<OrderItem> itemsOutOfBox = new LinkedHashSet<>();
+    private HashSet<OrderItem> itemsInBox = new HashSet<>();
+    private HashSet<OrderItem> itemsOutOfBox = new HashSet<>();
 
     public void addItemInBox(OrderItem item) {
         itemsInBox.add(item);
@@ -13,19 +13,27 @@ public class Order {
         itemsOutOfBox.add(item);
     }
 
+    private void appendFirstMatch(StringBuilder sb, HashSet<OrderItem> set, OrderItemType type) {
+        for (OrderItem item : set) {
+            if (item.getType() == type) {
+                sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
+                return; 
+            }
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Out of the Box:\n");
-        for (OrderItem item : itemsOutOfBox) {
-            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
-        }
+        appendFirstMatch(sb, itemsOutOfBox, OrderItemType.DRINK);
 
         sb.append("\nIn the Box:\n");
-        for (OrderItem item : itemsInBox) {
-            sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
-        }
+    
+        appendFirstMatch(sb, itemsInBox, OrderItemType.TOY);
+        appendFirstMatch(sb, itemsInBox, OrderItemType.FRIES);
+        appendFirstMatch(sb, itemsInBox, OrderItemType.SNACK);
 
         sb.append("\n");
         return sb.toString();
