@@ -17,26 +17,24 @@ public class Order {
         for (OrderItem item : set) {
             if (item.getType() == type) {
                 sb.append(item.getType()).append(" ").append(item.getName()).append("\n");
-                return; 
+                return;
             }
         }
     }
 
-@Override
-public String toString() {
-    StringBuilder sb = new StringBuilder();
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
-    sb.append("Out of the Box:\n\n");
-    appendFirstMatch(sb, itemsOutOfBox, OrderItemType.DRINK);
+        sb.append("Out of the Box:\n\n");
+        appendFirstMatch(sb, itemsOutOfBox, OrderItemType.DRINK);
 
-    sb.append("\n\nIn the Box:\n");
-    appendFirstMatch(sb, itemsInBox, OrderItemType.TOY);
-    appendFirstMatch(sb, itemsInBox, OrderItemType.FRIES);
-    appendFirstMatch(sb, itemsInBox, OrderItemType.SNACK);
+        sb.append("\nIn the Box:\n");
+        appendFirstMatch(sb, itemsInBox, OrderItemType.TOY);
+        appendFirstMatch(sb, itemsInBox, OrderItemType.FRIES);
+        appendFirstMatch(sb, itemsInBox, OrderItemType.SNACK);
 
-    sb.append("\n\n");
-    return sb.toString();
-}
-
-
+        sb.append("\n");
+        return sb.toString();
+    }
 }
