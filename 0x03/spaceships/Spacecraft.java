@@ -18,6 +18,6 @@ public class Spacecraft {
 
     @Override
     public String toString() {
-        return "Health: " + getHealth() + " - Attack: " + getAttack();
+        return String.format("Health: %d - Attack: %d", getHealth(), getAttack());
     }
 }
