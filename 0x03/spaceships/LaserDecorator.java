@@ -1,11 +1,11 @@
 public class LaserDecorator extends SpacecraftDecorator {
 
-    public LaserDecorator(Spacecraft spacecraft) {
-        super(spacecraft);
+    public LaserDecorator(Spacecraft spacecraftDecorated) {
+        super(spacecraftDecorated);
     }
 
     @Override
     public int getAttack() {
-        return spacecraft.getAttack() + 40;
+        return spacecraftDecorated.getAttack() + 40;
     }
 }
