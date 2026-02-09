@@ -5,10 +5,19 @@ public class NanoBotsDecorator extends SpacecraftDecorator {
     }
 
     @Override
-    public int getAttack() {
-  
+    public int getHealth() {
+
         if (spacecraftDecorated instanceof ArmorDecorator) {
-            return spacecraftDecorated.getAttack();
+            return 210;
+        }
+        return spacecraftDecorated.getHealth();
+    }
+
+    @Override
+    public int getAttack() {
+       
+        if (spacecraftDecorated instanceof ArmorDecorator) {
+            return 60;
         }
         return spacecraftDecorated.getAttack() + 25;
     }
