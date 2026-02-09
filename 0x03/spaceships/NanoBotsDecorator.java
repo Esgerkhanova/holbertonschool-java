@@ -1,11 +1,11 @@
 public class NanoBotsDecorator extends SpacecraftDecorator {
 
-    public NanoBotsDecorator(Spacecraft spacecraft) {
-        super(spacecraft);
+    public NanoBotsDecorator(Spacecraft spacecraftDecorated) {
+        super(spacecraftDecorated);
     }
 
     @Override
     public int getAttack() {
-        return spacecraft.getAttack() + 25;
+        return spacecraftDecorated.getAttack() + 25;
     }
 }
