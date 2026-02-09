@@ -1,19 +1,19 @@
 public class SpacecraftDecorator extends Spacecraft {
 
-    private Spacecraft spacecraft;
+    private Spacecraft spacecraftDecorated;
 
-    public SpacecraftDecorator(Spacecraft spacecraft) {
-        super(spacecraft.getHealth(), spacecraft.getAttack());
-        this.spacecraft = spacecraft;
+    public SpacecraftDecorator(Spacecraft spacecraftDecorated) {
+        super(spacecraftDecorated.getHealth(), spacecraftDecorated.getAttack());
+        this.spacecraftDecorated = spacecraftDecorated;
     }
 
     @Override
     public int getHealth() {
-        return spacecraft.getHealth();
+        return spacecraftDecorated.getHealth();
     }
 
     @Override
     public int getAttack() {
-        return spacecraft.getAttack();
+        return spacecraftDecorated.getAttack();
     }
 }
