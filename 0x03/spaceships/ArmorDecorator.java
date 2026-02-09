@@ -1,11 +1,11 @@
 public class ArmorDecorator extends SpacecraftDecorator {
 
-    public ArmorDecorator(Spacecraft spacecraft) {
-        super(spacecraft);
+    public ArmorDecorator(Spacecraft spacecraftDecorated) {
+        super(spacecraftDecorated);
     }
 
     @Override
     public int getHealth() {
-        return spacecraft.getHealth() + 150;
+        return spacecraftDecorated.getHealth() + 150;
     }
 }
