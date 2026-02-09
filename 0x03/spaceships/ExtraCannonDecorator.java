@@ -1,11 +1,11 @@
 public class ExtraCannonDecorator extends SpacecraftDecorator {
 
-    public ExtraCannonDecorator(Spacecraft spacecraft) {
-        super(spacecraft);
+    public ExtraCannonDecorator(Spacecraft spacecraftDecorated) {
+        super(spacecraftDecorated);
     }
 
     @Override
     public int getAttack() {
-        return spacecraft.getAttack() + 75;
+        return spacecraftDecorated.getAttack() + 75;
     }
 }
