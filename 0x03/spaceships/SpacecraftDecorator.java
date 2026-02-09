@@ -1,6 +1,6 @@
 public class SpacecraftDecorator extends Spacecraft {
 
-    protected Spacecraft spacecraft;
+    private Spacecraft spacecraft;
 
     public SpacecraftDecorator(Spacecraft spacecraft) {
         super(spacecraft.getHealth(), spacecraft.getAttack());
