@@ -1,0 +1,23 @@
+Hexagonal Architecture, also known as Ports and Adapters Architecture, was created by Alistair Cockburn. Its main objective is to decouple the core business logic of an application from external systems 
+such as databases, user interfaces, and third-party services. The architecture is called “hexagonal” because it conceptually represents the application as a hexagon, where each side can connect to different 
+external components through well-defined interfaces.
+
+The central idea of Hexagonal Architecture is that the core of the system (the domain and application logic) should not depend on external technologies. 
+Instead, communication with the outside world happens through ports (interfaces) and adapters (implementations of those interfaces). Ports define how the core interacts with external systems, 
+while adapters implement these interactions for specific technologies (e.g., REST controllers, databases, messaging systems). This approach enforces separation of concerns and ensures that the business rules remain 
+independent from infrastructure details.
+
+One of the main benefits of Hexagonal Architecture is high testability. Since the core logic does not depend on frameworks or external tools, it can be tested in isolation using mocks or stubs for the ports. 
+Another advantage is flexibility: external technologies can be replaced without modifying the core business logic. For example, a database adapter can be replaced with another database implementation without
+affecting the domain layer. This architecture also improves maintainability, scalability, and long-term adaptability of the system.
+
+Hexagonal Architecture and Clean Architecture share similar goals, such as separation of concerns and independence of frameworks.
+Both emphasize keeping business logic at the center and isolating it from infrastructure. However, Clean Architecture, popularized by Robert C. Martin (Uncle Bob), introduces a more layered structure with clearly
+defined concentric circles (entities, use cases, interface adapters, frameworks). Hexagonal Architecture focuses more specifically on the concept of ports and adapters, highlighting how external actors interact with 
+the core. While Clean Architecture provides a more detailed layering model, Hexagonal Architecture offers a simpler and more interaction-oriented perspective.
+
+In my opinion, Hexagonal Architecture can be used in many types of projects, especially those that require long-term maintenance, complex business logic, or frequent changes in external technologies. 
+However, before adopting it, teams should consider the size and complexity of the project. For very small or simple applications, the added abstraction may introduce unnecessary complexity. It is also important to 
+evaluate team experience, development time constraints, and performance requirements. Proper understanding of domain modeling and interface design is essential to successfully implement this architectural pattern.
+
+In conclusion, Hexagonal Architecture is a powerful design approach that promotes modularity, flexibility, and testability by isolating business logic from infrastructure concerns.
